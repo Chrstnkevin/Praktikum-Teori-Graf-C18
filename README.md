@@ -6,6 +6,9 @@
 | Duevano Fairuz Pandya     | 5025211052      |
 | Christian Kevin Emor     | 5025211153      |
 
+# PPT 2
+ini soal
+
 # PPT 3
 
 > Jika sebuah bidak kuda diletakkan pada sebarang kotak untuk kemudian melakukan perjalanan (dengan cara pergerakan kuda) mengunjungi ke semua (8 x 8) kotak papan catur.
