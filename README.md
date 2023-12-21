@@ -61,3 +61,33 @@ Saat initial position kita definisikan sebagai start_x = 7 dan start_y = 7 mende
 kuda akan berada di posisi (7,7) dimana diwakili angka 1 dan akan terus bergerak hingga di posisi terakhir yaitu 64 yang merupakan posisi terakhir dari papan catur 8x8
 
 ![image](https://github.com/Chrstnkevin/Praktikum-Teori-Graf-C18/assets/97864068/523a3c58-2929-4399-a615-5befe03974d4)
+
+### - Mengakhiri perjalanan di sebarang kotak (open tour)
+
+Algoritma backtracking bekerja secara inkremental untuk menyelesaikan masalah. Biasanya, kita memulai dengan vektor solusi kosong dan satu per satu menambahkan elemen (artinya elemen ini bervariasi tergantung pada masalah yang dihadapi. Dalam konteks masalah tour Knight, elemen ini adalah langkah dari Knight). 
+
+Ketika kita menambahkan elemen, kita memeriksa apakah penambahan elemen saat ini melanggar batasan masalah; jika ya, kita menghapus elemen tersebut dan mencoba alternatif lain. Jika tidak ada alternatif yang berhasil, kita kembali ke tahap sebelumnya dan menghapus elemen yang ditambahkan pada tahap sebelumnya. Jika kita kembali ke tahap awal, kita menyatakan bahwa tidak ada solusi yang ada. Jika penambahan elemen tidak melanggar batasan, kita secara rekursif menambahkan elemen satu per satu. Jika vektor solusi menjadi lengkap, kita mencetak solusi tersebut.
+
+Berikut adalah algoritma backtracking untuk masalah tour Knight:
+```
+If semua kotak sudah dikunjungi,
+    cetak solusinya.
+Else,
+   a) Tambahkan salah satu langkah berikutnya ke vektor solusi dan secara rekursif
+   periksa apakah langkah ini mengarah ke solusi. (Sebuah Knight dapat membuat maksimum
+   delapan langkah. Kami memilih salah satu dari 8 langkah pada langkah ini).
+   b) Jika langkah yang dipilih pada langkah sebelumnya tidak mengarah ke solusi,
+   maka hapus langkah ini dari vektor solusi dan coba alternatif lain.
+   c) Jika tidak ada alternatif yang berhasil, kembalikan false (Mengembalikan false
+   akan menghapus item yang ditambahkan sebelumnya dalam rekursi dan jika false
+   dikembalikan oleh panggilan rekursi awal, maka "tidak ada solusi yang ada").
+```
+Berikut penjelasan singkat struktur kodingan dari kelompok kami.
+- Fungsi `isSafe()` adalah fungsi bantu yang memeriksa apakah posisi yang diberikan `(x, y)` di papan catur adalah langkah yang valid untuk kuda. Fungsi ini mengembalikan `True` jika langkahnya valid, dan `False` sebaliknya.
+- Fungsi `printSolution()` adalah fungsi bantu untuk mencetak matriks papan catur.
+- Fungsi `solveKT()` adalah fungsi utama yang menginisialisasi papan catur, mendefinisikan kemungkinan langkah kuda, dan memanggil fungsi bantu `solveKTUtil()` untuk memecahkan masalah Tur Kuda.
+- Fungsi `solveKTUtil()` adalah fungsi bantu rekursif yang mencoba untuk menemukan solusi untuk masalah Tur Kuda menggunakan backtracking. Fungsi ini mencoba semua langkah yang mungkin dan secara rekursif menjelajahi ruang solusi.
+- Terakhir, kode pengendali mengambil input untuk ukuran papan catur (`n`) dan memanggil fungsi `solveKT()` untuk menemukan dan mencetak solusi Tur Kuda.
+
+Berikut adalah rute kuda pada papan catur yang dihasilkan dari kode tersebut
+![image](3b.jpg)
