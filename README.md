@@ -9,6 +9,32 @@
 # PPT 2
 **Implementasikan sebuah program untuk menyelesaikan permasalahan “Longest Monotonically Increasing Subsequence”!**
 
+**Solusi**
+Longest Monotonically Increasing Subsequence merupakan suatu problem yang meminta kita untuk menemukan subsequence dari array / list / vector yang diberikan. Sebelumnya kita perlu tahu apa itu subsequence, subsequence merupakan kontainer yang bisa dibentuk dari suatu kontainer lain yang lebih besar. Berikut ini adalah contoh dari subsequence:
+
+`sequence: 4, 1, 13, 7, 0, 2, 8, 11, 3`
+`subsequence: {13, 7, 0, 2}, {4, 13}, {4, 1, 13},. . . , dsb.`
+
+Jadi subsequence dapat dibentuk dari array sebelumnya dengan pola apapun. Dalam kasus `Longest Increasing Subsequence` kita diminta untuk mencari subsequence terpanjang yang dapat dibentuk dari indeks pertama hingga terakhir sequence yang diberikan. 
+
+Berikut ini adalah contoh increasing subsequence dari sequence yang ada diatas:
+
+`increasing subsequence: {4, 13}, {1, 13}, {1, 7, 8, 11}, dsb.`
+
+dan berikut ini adalah contoh longest increasing subsequence yang kita harapkan:
+
+`LIS: {1, 7, 8, 11}, {4, 7, 8, 11}, {1, 2, 8, 11}, dsb.`
+
+dari sini dapat kita lihat bahwa LIS dari sequence di atas memiliki length 4. 
+
+Untuk menyelesaikan problem ini, kita bisa menggunakan pendekatan tree. Pada penyelesaian nya kami menggunakan algoritma `Depth First Search` atau DFS. Dengan menggunakan DFS kita bisa lihat LIS dari branch atau cabang yang memiliki leaf paling dalam sebagai solusi dari LIS.
+Jika memiliki sequence: 
+`sequence: 4, 1, 13, 7, 0, 2, 8, 11, 3`
+Berikut ini adalah tree yang dapat dibuat:
+
+Berikut ini adalah kode penyelesaian dari problem LIS di atas:
+https://ideone.com/BJqv5d
+
 ```cpp
 #include <iostream> 
 #include<vector>
@@ -69,6 +95,8 @@ int main(int argc, char *argv[]){
 * vector<int> vec = {4, 1, 13, 7, 0, 2, 8, 11, 3};: Mendefinisikan vektor vec sebagai contoh array untuk diuji.
 * cout<<LIS(vec)<<'\n';: Mencetak panjang LIS dari array vec ke layar.
 
+**Output**<br>
+![Alt text](image-1.png)
 
 
 # PPT 3
